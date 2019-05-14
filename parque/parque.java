@@ -18,13 +18,13 @@ import parque.ventas.Venta;
  * @author corun
  */
 public class parque {
-    
-    public final ListaEntradas listaEntradas = ListaEntradas.getListaEntradas();
-    public final ListaAtracciones listaAtracciones = ListaAtracciones.getListaAtracciones();
-    public final ListaEmpleados listaEmpleados = ListaEmpleados.getListaEmpleados();
-    public final ListaVentas listaVentas = ListaVentas.getListaVentas();
-    public final ListaUsuarios listaUsuarios = ListaUsuarios.getListaUsuarios();
-    
+
+    public static final ListaEntradas listaEntradas = ListaEntradas.getListaEntradas();
+    public static final ListaAtracciones listaAtracciones = ListaAtracciones.getListaAtracciones();
+    public static final ListaEmpleados listaEmpleados = ListaEmpleados.getListaEmpleados();
+    public static final ListaVentas listaVentas = ListaVentas.getListaVentas();
+    public static final ListaUsuarios listaUsuarios = ListaUsuarios.getListaUsuarios();
+
     /**
      * @param args the command line arguments
      */
@@ -74,31 +74,15 @@ public class parque {
 //       
 //        System.out.println(ListaEntradas.getListaEntradas().isEmpty());
     }
-    
-    public Venta comprarEntradaTaquilla(boolean complementoVIP){  
+
+    public Venta comprarEntradaTaquilla(boolean complementoVIP) {
         Venta nuevaVenta = null;
-        try{
-            nuevaVenta= ListaVentas.getListaVentas().addVenta(TipoVenta.TAQUILLA);
-        }catch (Exception e){
+        try {
+            nuevaVenta = ListaVentas.getListaVentas().addVenta(TipoVenta.TAQUILLA);
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
         return nuevaVenta;
     }
-    
-    public ListaAtracciones getListaAtracciones(){
-        return this.listaAtracciones;
-    }
-    public ListaEmpleados getListaEmpleados(){
-        return this.listaEmpleados;
-    }
-    public ListaEntradas getListaEntradas(){
-        return this.listaEntradas;
-    }
-    public ListaVentas getListaVentas(){
-        return this.listaVentas;
-    }   
-    
-    public ListaUsuarios getListaUsuarios(){
-        return this.listaUsuarios;
-    }
+
 }
