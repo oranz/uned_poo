@@ -19,10 +19,10 @@ import parque.ventas.Venta;
  */
 public class parque {
     
-    public final ListaEntradas listaEntradas = ListaEntradas.getListaEntradas();
-    public final ListaAtracciones listaAtracciones = ListaAtracciones.getListaAtracciones();
-    public final ListaEmpleados listaEmpleados = ListaEmpleados.getListaEmpleados();
-    public final ListaVentas listaVentas = ListaVentas.getListaVentas();
+    public static final ListaEntradas listaEntradas = ListaEntradas.getListaEntradas();
+    public static final ListaAtracciones listaAtracciones = ListaAtracciones.getListaAtracciones();
+    public static final ListaEmpleados listaEmpleados = ListaEmpleados.getListaEmpleados();
+    public static final ListaVentas listaVentas = ListaVentas.getListaVentas();
     public static final ListaUsuarios listaUsuarios = ListaUsuarios.getListaUsuarios();
     
     /**
@@ -86,19 +86,19 @@ public class parque {
     }
     
     public ListaAtracciones getListaAtracciones(){
-        return this.listaAtracciones;
+        return parque.listaAtracciones;
     }
     public ListaEmpleados getListaEmpleados(){
-        return this.listaEmpleados;
+        return parque.listaEmpleados;
     }
     public ListaEntradas getListaEntradas(){
-        return this.listaEntradas;
+        return parque.listaEntradas;
     }
     public ListaVentas getListaVentas(){
-        return this.listaVentas;
+        return parque.listaVentas;
     }   
     
     public ListaUsuarios getListaUsuarios(){
-        return this.listaUsuarios;
+        return parque.listaUsuarios;
     }
 }
