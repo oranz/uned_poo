@@ -4,9 +4,8 @@ Tell the reader (someone who does not know anything about this project)
 all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
+PROJECT TITLE: ParqueAtracciones
+PURPOSE OF PROJECT: Practica POO
+VERSION or DATE: 14/05/2019
 HOW TO START THIS PROJECT:
-AUTHORS:
 USER INSTRUCTIONS:
