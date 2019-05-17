@@ -5,13 +5,13 @@
  */
 
 
-import parque.atracciones.ListaAtracciones;
-import parque.empleados.ListaEmpleados;
-import parque.entradas.ListaEntradas;
-import parque.usuarios.ListaUsuarios;
-import parque.ventas.ListaVentas;
-import parque.ventas.TipoVenta;
-import parque.ventas.Venta;
+import park.atracciones.ListaAtracciones;
+import park.empleados.ListaEmpleados;
+import park.entradas.ListaEntradas;
+import park.usuarios.ListaUsuarios;
+import park.ventas.ListaVentas;
+import park.ventas.TipoVenta;
+import park.ventas.Venta;
 
 /**
  *
