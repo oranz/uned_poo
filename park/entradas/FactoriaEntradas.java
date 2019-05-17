@@ -7,6 +7,7 @@ package park.entradas;
 
 import park.usuarios.TipoUsuario;
 import park.usuarios.Usuario;
+import park.usuarios.UsuarioInfantil;
 
 /**
  *
@@ -37,7 +38,7 @@ public class FactoriaEntradas {
                     throw new RuntimeException("El usuario indicado es infantil");
                 }
                 //Si pasa las comprobaciones crea la entrada
-                entrada = new EntradaGeneralAdulto(VIP, temporada, usuario);
+                entrada = new EntradaGeneral(VIP, temporada, usuario);
                 break;
             case GENERAL_INFANTIL:
                 // Se comprueba que la entrada asociada sea de adulto y el usuario infantil
@@ -47,8 +48,45 @@ public class FactoriaEntradas {
                     throw new RuntimeException("El usuario indicado no es infantil");
                 }
                 //Si pasa las comprobaciones crea la entrada
-                entrada = new EntradaGeneralInfantil(entradaAdultoAsociada, VIP, temporada, usuario);
+                entrada = new EntradaGeneral(entradaAdultoAsociada, (UsuarioInfantil) usuario);
                 break;
+            case LABORABLE_ADULTO:
+                 // Se comprueba que el usuario sea adulto
+                if (usuario.getTipoUsuario() == TipoUsuario.INFANTIL) {
+                    throw new RuntimeException("El usuario indicado es infantil");
+                }
+                //Si pasa las comprobaciones crea la entrada
+                entrada = new EntradaLaborable(VIP, temporada, usuario);
+                break;
+            case LABORABLE_INFANTIL:
+                // Se comprueba que la entrada asociada sea de adulto y el usuario infantil
+                if (entradaAdultoAsociada.isEntradaAdulto()) {
+                    throw new RuntimeException("La entrada asociada no es de adulto");
+                } else if (usuario.getTipoUsuario() != TipoUsuario.INFANTIL) {
+                    throw new RuntimeException("El usuario indicado no es infantil");
+                }
+                //Si pasa las comprobaciones crea la entrada
+                entrada = new EntradaLaborable(entradaAdultoAsociada, (UsuarioInfantil) usuario);
+                break;
+            case TARDE_ADULTO:
+                 // Se comprueba que el usuario sea adulto
+                if (usuario.getTipoUsuario() == TipoUsuario.INFANTIL) {
+                    throw new RuntimeException("El usuario indicado es infantil");
+                }
+                //Si pasa las comprobaciones crea la entrada
+                entrada = new EntradaTarde(VIP, temporada, usuario);
+                break;
+            case TARDE_INFANTIL:
+                // Se comprueba que la entrada asociada sea de adulto y el usuario infantil
+                if (entradaAdultoAsociada.isEntradaAdulto()) {
+                    throw new RuntimeException("La entrada asociada no es de adulto");
+                } else if (usuario.getTipoUsuario() != TipoUsuario.INFANTIL) {
+                    throw new RuntimeException("El usuario indicado no es infantil");
+                }
+                //Si pasa las comprobaciones crea la entrada
+                entrada = new EntradaTarde(entradaAdultoAsociada, (UsuarioInfantil) usuario);
+                break;
+                
             default:
                 throw new RuntimeException("No se pudo crear la entrada con los datos indicados");
         }

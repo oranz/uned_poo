@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Declaración del paquete al que pertenece  la clase
 package park.entradas;
 
 /**
- *
- * @author corun
+ * Enumeración de los tipos de entrada que se pueden crear desde la clase factoría de entradas.
+ * @author Oscar Ranz Rumbo
  */
 public enum TipoEntrada {
-    GENERAL_ADULTO, GENERAL_INFANTIL
+    GENERAL_ADULTO, GENERAL_INFANTIL, LABORABLE_ADULTO, LABORABLE_INFANTIL, TARDE_ADULTO,
+    TARDE_INFANTIL
 }

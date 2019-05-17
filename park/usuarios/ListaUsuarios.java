@@ -32,7 +32,7 @@ public class ListaUsuarios extends ArrayList<Usuario> {
         switch (tipoUsuario) {
 
             case INFANTIL:
-                usuario = new UsuarioMenor(altura);
+                usuario = new UsuarioInfantil(altura);
                 break;
             case ADULTO:
                 usuario = new UsuarioAdulto(altura);

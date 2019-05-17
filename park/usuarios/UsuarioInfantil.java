@@ -9,9 +9,9 @@ package park.usuarios;
  *
  * @author corun
  */
-public class UsuarioMenor extends Usuario{
+public class UsuarioInfantil extends Usuario{
     
-    public UsuarioMenor(int altura) {
+    public UsuarioInfantil(int altura) {
         super(TipoUsuario.INFANTIL, altura);
     }
     
