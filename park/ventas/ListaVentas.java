@@ -28,7 +28,13 @@ public class ListaVentas extends ArrayList<Venta> {
         return listaVentas;
     }
 
-    public Venta addVenta(TipoVenta tipoVenta) {
+    /**
+     * Método para añadir una venta a la lista
+     * @param tipoVenta el tipo de venta: taquilla o ecommerce
+     * @return devuelve la venta creada
+     * @throws RuntimeException  da un error si el tipo de venta facilitado no es válido
+     */
+    public Venta addVenta(TipoVenta tipoVenta) throws RuntimeException {
         Venta venta;
         switch (tipoVenta) {
             case ECOMMERCE:

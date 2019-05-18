@@ -29,7 +29,19 @@ public class FactoriaEntradas {
         return factoriaEntradas;
     }
     
-    public Entrada generaEntrada(TipoEntrada tipoEntrada, boolean VIP, Temporada temporada, Entrada entradaAdultoAsociada, Usuario usuario) {
+    /**
+     * Método para crear entradas en función de los parámetros facilitados
+     * @param tipoEntrada El tipo de entrada que se debe crear
+     * @param VIP true si adquiere complemento VIP, false si no lo adquiere
+     * @param temporada temporada para la que compra la entrada: ALTA,MEDIA,BAJA
+     * @param entradaAdultoAsociada si es infantil, la entrada del adulto al que está asociada
+     * @param usuario el usuario al que pertenece la entrada
+     * @return devuelve la entrada generada
+     * @throws RuntimeException se generará una excepción si se intenta vender 
+     * un tipo de entrada a un tipo de usuario incorrecto, o si se intenta 
+     * asociar a una entrada infantil una entrada que no sea de adulto/senior
+     */
+    public Entrada generaEntrada(TipoEntrada tipoEntrada, boolean VIP, Temporada temporada, Entrada entradaAdultoAsociada, Usuario usuario) throws RuntimeException{
         Entrada entrada;
         switch (tipoEntrada) {
             case GENERAL_ADULTO:

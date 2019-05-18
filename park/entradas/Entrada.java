@@ -232,13 +232,21 @@ public abstract class Entrada {
      */
     public int getImporteTotal(){
         int sumatorio, descuentos;
+        // Se calculan los decuentos
         descuentos = this.getlistaBonificaciones().stream().mapToInt(b -> b.getPorcentajeBonificacion()).sum();
+        // Se asigna el precio base de la temporada
         sumatorio = getPrecioBaseTemporada();
         // El descuento no puede ser mayor de un 90% del precio de la temporada.
         if (descuentos > 90){
             descuentos = 90;
         }
-        sumatorio -= (sumatorio * descuentos) / 100;        
+        // Se calcula el precio con el descuento incluido
+        sumatorio -= (sumatorio * descuentos) / 100;   
+        // Si tiene VIP se le añade
+        if (this.isVIP()){
+            sumatorio+=this.getPrecioVIP();
+        }
+       // Se devuelve el importe total
         return sumatorio;
     }
       
