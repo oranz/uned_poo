@@ -2,17 +2,11 @@
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import park.atracciones.Atraccion;
-import park.atracciones.ListaAtracciones;
-import park.atracciones.TipoAtraccion;
-import park.empleados.ListaEmpleados;
-import park.entradas.Entrada;
-import park.entradas.ListaEntradas;
-import park.entradas.Temporada;
-import park.usuarios.ListaUsuarios;
-import park.ventas.ListaVentas;
-import park.ventas.TipoVenta;
-import park.ventas.Venta;
+import park.atracciones.*;
+import park.empleados.*;
+import park.entradas.*;
+import park.usuarios.*;
+import park.ventas.*;
 
 /**
  * La clase parque es la clase principal de la aplicación.
