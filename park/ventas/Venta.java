@@ -40,28 +40,33 @@ public abstract class Venta {
         cesta.add(FactoriaEntradas.getInstance().generaEntrada(tipoEntrada, VIP, temporada, entradaAdultoAsociada, usuario));
     }
 
-    void finCompra() {
-        
+    /**
+     * Método que finaliza una venta, incorporando las entradas de la cesta en la lista de entradas
+     * y devuelve el importe a cobrar.
+     * @return importe total a cobrar por las entradas adquiridas.
+     */
+    public int finCompra() {
         if(!ListaEntradas.getListaEntradas().addAll(cesta)){
             throw new RuntimeException("Error al añadir las entradas en la lista de entradas");
         }
         fechaCompra = LocalDate.now();
         this.finCompra = true;
+        return this.cesta.stream().mapToInt(e -> e.getImporteTotal()).sum();
     }
 
-    boolean isFinCompra() {
+    public boolean isFinCompra() {
         return finCompra;
     }
 
-    int getIdVenta() {
+    public int getIdVenta() {
         return idVenta;
     }
 
-    LocalDate getFechaCompra() {
+    public LocalDate getFechaCompra() {
         return fechaCompra;
     }
 
-    TipoVenta getTipoVenta() {
+    public TipoVenta getTipoVenta() {
         return tipoVenta;
     }
    
