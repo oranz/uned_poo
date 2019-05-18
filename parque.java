@@ -21,6 +21,7 @@ public class parque {
     public static final ListaEmpleados listaEmpleados = ListaEmpleados.getListaEmpleados();
     public static final ListaVentas listaVentas = ListaVentas.getListaVentas();
     public static final ListaUsuarios listaUsuarios = ListaUsuarios.getListaUsuarios();
+    public static final ListaAccesosParque listaAccesosParque = ListaAccesosParque.getListaAccesosParque();
     
     // Constantes
     private final int CANTIDAD_ATRACCIONES_INICIALES_TIPO_A=4;
@@ -100,7 +101,7 @@ public class parque {
         // Se comprueba que la entrada pertenece a la temporada actual
         perteneceTemporada=entrada.getTemporada()==temporadaActual();
         // Se comprueba que la entrada no ha sido anulada o ya ha sido utilizada.
-        entradaNoUtilizadaAnulada = entrada.isAnulada();
+        entradaNoUtilizadaAnulada = entrada.isAnulada() && entrada.getFechaAcceso()==null;
         // Se comprueba que si es entrada de tarde la hora no sea las antes de las 16 horas.
         validoHora = (entrada.isAccesoTarde() && LocalDateTime.now().getHour()>=16)
                         || !entrada.isAccesoTarde();
@@ -111,6 +112,7 @@ public class parque {
         // Si todas las validaciones son correctas se registra la entrada y se autoriza la entrada (devuelve true)
         if (perteneceTemporada && entradaNoUtilizadaAnulada && validoHora && validoDia){
             //se registra la entrada en la colección correspondiente.
+            ListaAccesosParque.getListaAccesosParque().add(new AccesoParque(entrada));
             return true;
         }else{
             return false;
