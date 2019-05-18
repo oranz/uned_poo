@@ -52,7 +52,7 @@ public abstract class Entrada {
         
         // Se añaden bonificación si es senior y otras
         if (usuario.getTipoUsuario()==TipoUsuario.SENIOR){
-            this.addBonificacion(new Bonificacion(50,"Bonificación senior"));
+            this.addBonificacion(new Bonificacion(35,"Bonificación senior"));
         }     
         this.addBonificacionTemporada(temporada);
     }
@@ -234,18 +234,14 @@ public abstract class Entrada {
         int sumatorio, descuentos;
         descuentos = this.getlistaBonificaciones().stream().mapToInt(b -> b.getPorcentajeBonificacion()).sum();
         sumatorio = getPrecioBaseTemporada();
-        sumatorio += (sumatorio * descuentos) / 100;        
-        return (this.getPrecioMinimoTemporada()>sumatorio)?this.getPrecioMinimoTemporada():sumatorio;
+        // El descuento no puede ser mayor de un 90% del precio de la temporada.
+        if (descuentos > 90){
+            descuentos = 90;
+        }
+        sumatorio -= (sumatorio * descuentos) / 100;        
+        return sumatorio;
     }
-    
-    /**
-     * Método para calcular el precio mínimo de la entrada según la temporada
-     * @return importe mínimo de la entrada
-     */
-    private int getPrecioMinimoTemporada(){
-        return (getPrecioBaseTemporada()*10)/100;
-    }
-    
+      
     /**
      * Método para calcular el precio base según la temporada
      * @return devuelve el precio base según la temporada.

@@ -46,6 +46,9 @@ public abstract class Venta {
      * @return importe total a cobrar por las entradas adquiridas.
      */
     public int finCompra() {
+        if (this.isFinCompra()){
+            throw new RuntimeException ("Esta compra ya se ha finalizado previamente.");
+        }
         if(!ListaEntradas.getListaEntradas().addAll(cesta)){
             throw new RuntimeException("Error al añadir las entradas en la lista de entradas");
         }

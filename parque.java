@@ -126,7 +126,6 @@ public class parque {
     public boolean accesoAtraccion(Atraccion atraccion, Entrada entrada){
         return false;
     }
-    
       
     /**
      * Método que creará datos simulados del parque.
