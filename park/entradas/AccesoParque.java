@@ -1,7 +1,9 @@
 // Declaración del paquete al que pertenece  la clase
 package park.entradas;
 //Importación de clases y/o paquetes
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * Clase que registra el acceso al parque de una entrada.
@@ -18,6 +20,12 @@ public class AccesoParque {
     public AccesoParque(Entrada entrada) {
         this.entrada = entrada;
         this.timestamp = LocalDateTime.now();
+        entrada.setFechaAcceso(timestamp);
+    }
+
+    public AccesoParque(Entrada entrada, LocalDate fecha) {
+        this.entrada = entrada;
+        this.timestamp=LocalDateTime.of(fecha, LocalTime.now());
         entrada.setFechaAcceso(timestamp);
     }
 

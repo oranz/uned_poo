@@ -5,10 +5,18 @@
  */
 package park.informes;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import park.atracciones.ListaAccesoAtracciones;
+import park.entradas.ListaAccesosParque;
+
 /**
  *
  * @author corun
  */
 public class InformeAccesoAtracciones {
     
+
 }
