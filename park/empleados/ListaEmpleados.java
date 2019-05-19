@@ -8,11 +8,14 @@ package park.empleados;
 import java.util.ArrayList;
 
 /**
- *
+ * clase que contiene la lista de los empleados que han trabajado o se pueden contratar y asignar.
  * @author corun
  */
 public class ListaEmpleados extends ArrayList<Empleado> {
 
+    /**
+     * Uso de patrón Singleton para que sólo haya una lista.
+     */
     private ListaEmpleados() {
 
     }
@@ -27,6 +30,11 @@ public class ListaEmpleados extends ArrayList<Empleado> {
         return listaEmpleados;
     }
     
+    /**
+     * Uso del patrón factory para crear los distintos tipos de empleado.
+     * @param cantidad numero de empleados a crear del tipo indicado
+     * @param tipoEmpleado tipo de empleado a generar
+     */
     public static void crearEmpleados(int cantidad, TipoEmpleado tipoEmpleado){
         for (int i=0; i<cantidad;i++){
             switch(tipoEmpleado){

@@ -6,7 +6,7 @@
 package park.empleados;
 
 /**
- *
+ * Clase para dar de alta empleados de Atención al cliente.
  * @author corun
  */
 public class AtencionCliente extends Empleado{

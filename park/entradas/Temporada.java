@@ -6,7 +6,7 @@
 package park.entradas;
 
 /**
- *
+ * Enumeración con los tipos de temporada
  * @author corun
  */
 public enum Temporada {

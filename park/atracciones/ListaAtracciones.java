@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import park.empleados.TipoEmpleado;
 
 /**
- *
+ * Clase con la lista de atracciones que están dadas de alta en el parque, no implica que estén activas.
  * @author corun
  */
 public class ListaAtracciones extends ArrayList<Atraccion> {
 
+    /**
+     * Se crea con patrón Singleton para que sólo haya una lista
+     */
     private ListaAtracciones() {
     }
     private static ListaAtracciones listaAtracciones;

@@ -5,10 +5,17 @@
  */
 package park.entradas;
 
+import park.ventas.Bonificacion;
+
 /**
- *
+ * Clase para crear entradas bonificadas.
  * @author corun
  */
-public class EntradaBonificada {
+public class EntradaBonificada extends Entrada{
+    
+    public EntradaBonificada(boolean VIP, Temporada temporada, boolean accesoTarde, boolean soloLaborable, park.usuarios.Usuario usuario, Bonificacion bonificacion) {
+        super(VIP, temporada, accesoTarde, soloLaborable, usuario);
+        this.addBonificacion(bonificacion);
+    }
     
 }

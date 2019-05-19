@@ -23,6 +23,11 @@ public class AccesoParque {
         entrada.setFechaAcceso(timestamp);
     }
 
+    /**
+     * Constructor creado para generar repositorio.
+     * @param entrada entrada asociada
+     * @param fecha  fecha en la que se da por accedido.
+     */
     public AccesoParque(Entrada entrada, LocalDate fecha) {
         this.entrada = entrada;
         this.timestamp=LocalDateTime.of(fecha, LocalTime.now());

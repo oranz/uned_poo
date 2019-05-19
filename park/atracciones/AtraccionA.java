@@ -6,8 +6,8 @@
 package park.atracciones;
 
 /**
- *
- * @author corun
+ * Clase específica para creación de atracciones de tipo A
+ * @author Oscar Ranz Rumbo
  */
 class AtraccionA extends Atraccion{
     

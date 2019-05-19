@@ -8,11 +8,14 @@ package park.atracciones;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase que crea una lista de acceso a las atracciones.
  * @author corun
  */
 public class ListaAccesoAtracciones extends ArrayList<AccesoAtraccion> {
 
+    /**
+     * Se construye con patrón Singleton para que sólo haya una lista.
+     */
     private ListaAccesoAtracciones() {
     }
     private static ListaAccesoAtracciones listaAccesoAtracciones;

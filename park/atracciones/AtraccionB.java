@@ -6,7 +6,7 @@
 package park.atracciones;
 
 /**
- *
+ * Clase para la creación de atracciones de tipo B
  * @author corun
  */
 class AtraccionB extends Atraccion {

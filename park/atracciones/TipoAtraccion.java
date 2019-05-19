@@ -6,7 +6,7 @@
 package park.atracciones;
 
 /**
- *
+ * Enumeración con los tipos de atracción existentes para creación con patrón factory.
  * @author corun
  */
 public enum TipoAtraccion {

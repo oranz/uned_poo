@@ -6,7 +6,7 @@
 package park.empleados;
 
 /**
- *
+ * Interfaz para los empleados que se puedan promocionar.
  * @author corun
  */
 interface IPromocionable {
