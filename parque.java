@@ -46,7 +46,9 @@ public class parque {
      */
     public static void main(String[] args) {
            parque parque1 = new parque();
-           System.out.print(FIN_PROGRAMA);
+           parque1.runRepositorioDatos();
+           System.out.println(listaEntradas.size());
+           System.out.println(FIN_PROGRAMA);
     }
     
     /**
@@ -149,66 +151,69 @@ public class parque {
         Random r = new Random();
         
         // Se crean entradas y usuarios
-        try{
-            int control=2000;
-            Entrada entrada=fe.generaEntrada(TipoEntrada.GENERAL_ADULTO, true, Temporada.MEDIA, null, new UsuarioAdulto(185));
-            ventaRepositorio.getListaCesta().add(entrada);
-            do{
-                int random = r.nextInt(4);
-                int alturaRandom = r.nextInt(50)+120;
-                switch(random){
-                    case 0:
+
+        int control=2000;
+        Entrada entrada=fe.generaEntrada(TipoEntrada.GENERAL_ADULTO, true, Temporada.MEDIA, null, new UsuarioAdulto(185));
+        ventaRepositorio.getListaCesta().add(entrada);
+        do{
+            int random = r.nextInt(4);
+            int alturaRandom = r.nextInt(50)+120;
+            switch(random){
+                case 0:
+                    try{
                         entrada=fe.generaEntrada(TipoEntrada.TARDE_ADULTO, true, Temporada.MEDIA, null, new UsuarioAdulto(alturaRandom));
-                        break;
-                    case 1:
+                    }catch (Exception e){}
+                    break;
+                case 1:
+                    try{
                         entrada=fe.generaEntrada(TipoEntrada.LABORABLE_ADULTO, false, Temporada.ALTA, null, new UsuarioSenior(alturaRandom));
-                        break;
-                    case 2:
+                    }catch (Exception e){}
+                    break;
+                case 2:
+                    try{
                         entrada=fe.generaEntrada(TipoEntrada.GENERAL_ADULTO, false, Temporada.BAJA, null, new UsuarioAdulto(alturaRandom));
-                        break;
-                    case 3:
+                    }catch (Exception e){}
+                    break;
+                case 3:
+                    try{
                         Entrada entradaAdulto = ListaEntradas.getListaEntradas().stream().filter(e -> e.isEntradaAdulto()).findAny().get();
                         entrada=fe.generaEntrada(TipoEntrada.LABORABLE_INFANTIL, true, null, entradaAdulto, new UsuarioAdulto(alturaRandom));
-                        break;                        
-                }
-                
-                ventaRepositorio.getListaCesta().add(entrada);
-                control--;
-            }while(control>0);
-        }catch(Exception e){
-            
-        }
-        ventaRepositorio.isFinCompra();
+                    }catch (Exception e){}
+                    break;                        
+            }
+
+            ventaRepositorio.getListaCesta().add(entrada);
+            control--;
+        }while(control>0);
+
+        ventaRepositorio.finCompra();
         
         // Se simulan entradas al parque
-        try{
-            fecha =  LocalDate.of(2019, 1, 1);
-            for (int i=0; i< ListaEntradas.getListaEntradas().size();i++){
+        
+        fecha =  LocalDate.of(2019, 1, 1);
+        for (int i=0; i< ListaEntradas.getListaEntradas().size();i++){
+            try{
                 ListaAccesosParque.getListaAccesosParque().add(new AccesoParque(ListaEntradas.getListaEntradas().get(i),fecha));
-                if(r.nextInt(7)==3){
-                    fecha=fecha.plusDays(1);
-                }
+            }catch(Exception e){}
+            if(r.nextInt(7)==3){
+                fecha=fecha.plusDays(1);
             }
-        }catch(Exception e){
-            
         }
         
+        
         // Se simulan atracciones activas por día
-        try{
-            fecha =  LocalDate.of(2019, 1, 2);
-            do{
-                DiarioAtraccionesFuncionando temporal = new DiarioAtraccionesFuncionando(fecha);
-                for (int i=0; i< ListaAtracciones.getListaAtracciones().size();i++){
-                    if(r.nextInt(7)==3){
-                        temporal.getListaAtraccionesFuncionando().add(ListaAtracciones.getListaAtracciones().get(i));
-                    }
+        fecha =  LocalDate.of(2019, 1, 2);
+        do{
+            DiarioAtraccionesFuncionando temporal = new DiarioAtraccionesFuncionando(fecha);
+            for (int i=0; i< ListaAtracciones.getListaAtracciones().size();i++){
+                if(r.nextInt(7)==3){
+                    temporal.getListaAtraccionesFuncionando().add(ListaAtracciones.getListaAtracciones().get(i));
                 }
-                AtraccionesFuncionando.getLista().add(temporal);
-                fecha=fecha.plusDays(1);
-            }while(fecha.getYear()!=2020);
-        }catch(Exception e){
+            }
+            AtraccionesFuncionando.getLista().add(temporal);
+            fecha=fecha.plusDays(1);
+        }while(fecha.getYear()!=2020);
             
-        }
         
         // Se simulan accesos a las atracciones
 //        try{
