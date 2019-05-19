@@ -6,6 +6,7 @@ import java.util.Random;
 import park.atracciones.*;
 import park.empleados.*;
 import park.entradas.*;
+import park.informes.*;
 import park.usuarios.*;
 import park.ventas.*;
 
@@ -252,5 +253,9 @@ public class parque {
             return Temporada.MEDIA;
         }
 
+    }
+    
+    public InformeNumeroVisitantes getInformeNumeroVisitantes(){
+        return new InformeNumeroVisitantes();
     }
 }
