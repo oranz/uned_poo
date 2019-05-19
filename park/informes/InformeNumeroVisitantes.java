@@ -8,8 +8,6 @@ package park.informes;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import park.entradas.ListaAccesosParque;
 
 /**
@@ -32,7 +30,7 @@ public class InformeNumeroVisitantes {
             do{
                 sumatorio += getTotalAccesosParqueDia(fechaTemporal);
                 fechaTemporal=fechaTemporal.plusDays(1);
-            }while(fechaTemporal.getDayOfWeek() != DayOfWeek.MONDAY || fechaTemporal.getYear() != anho+1);
+            }while(fechaTemporal.getDayOfWeek() != DayOfWeek.MONDAY && fechaTemporal.getYear() != anho+1);
             
             semanas.add(sumatorio); 
         }
@@ -43,7 +41,7 @@ public class InformeNumeroVisitantes {
     public int getTotalAccesosParquePorMes(int anho, int mes){
      
         return (int) ListaAccesosParque.getListaAccesosParque().stream()
-                .filter(a -> a.getTimestamp().getMonthValue()==anho)
+                .filter(a -> a.getTimestamp().getYear()==anho)
                 .filter(a->a.getTimestamp().getMonthValue()==mes)
                 .count();
         
