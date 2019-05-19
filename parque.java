@@ -67,8 +67,11 @@ public class parque {
         System.out.print(ATRACCIONES_CONSTRUIDAS);
         
         // Dado que en el mismo punto se indica el porcentaje de empleados necesarios,
-        // se presupone que están todas las atracciones activas en el inicio del parque.
-        
+        // se presupone que están todas las atracciones activas en el inicio del parque,
+        // por lo que se añaden a la lista de AtraccionesFuncionando para el 1/1/2019
+        DiarioAtraccionesFuncionando diarioAtraccionesFuncionando = new DiarioAtraccionesFuncionando(LocalDate.of(2019, 1, 1));
+        diarioAtraccionesFuncionando.getListaAtraccionesFuncionando().addAll(ListaAtracciones.getListaAtracciones());
+        AtraccionesFuncionando.getLista().add(diarioAtraccionesFuncionando);       
         
         System.out.print(EMPLEADOS_CONTRATADOS);
         
@@ -126,6 +129,12 @@ public class parque {
      * @return 
      */
     public boolean accesoAtraccion(Atraccion atraccion, Entrada entrada){
+        
+        // Se hace la comprobación de acceso
+        if (atraccion.acceder(entrada)){
+            ListaAccesoAtracciones.getLista().add(new AccesoAtraccion(atraccion,entrada));
+            return true;
+        }
         return false;
     }
       

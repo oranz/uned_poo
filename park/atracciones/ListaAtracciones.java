@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Declaración del paquete al que pertenece  la clase
 package park.atracciones;
 
+//Importación de clases y/o paquetes
 import java.util.ArrayList;
 import park.empleados.TipoEmpleado;
 
