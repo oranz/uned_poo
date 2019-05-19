@@ -154,6 +154,7 @@ public class parque {
         Random r = new Random();
         
         // Se crean entradas y usuarios
+        System.out.println("Creando entradas y usuarios...");
 
         int control=1000;
         Entrada entrada=fe.generaEntrada(TipoEntrada.GENERAL_ADULTO, true, Temporada.MEDIA, null, new UsuarioAdulto(185));
@@ -192,7 +193,7 @@ public class parque {
         ventaRepositorio.finCompra();
         
         // Se simulan entradas al parque
-        
+        System.out.println("Creando accesos al parque...");
         fecha =  LocalDate.of(2019, 1, 1);
         for (int i=0; i< ListaEntradas.getListaEntradas().size();i++){
             try{
@@ -205,6 +206,7 @@ public class parque {
         
         
         // Se simulan atracciones activas por día
+        System.out.println("Creando simulación de atracciones activas por día...");
         fecha =  LocalDate.of(2019, 1, 2);
         do{
             DiarioAtraccionesFuncionando temporal = new DiarioAtraccionesFuncionando(fecha);
@@ -257,7 +259,23 @@ public class parque {
 
     }
     
+    /**
+     * Método que devuelve un objeto InformeNumeroVisitantes que permite 
+     * generar datos con sus métodos para recuperar los datos necesarios
+     * para hacer estadísticas.
+     * @return devuelve un objeto InformeNumeroVisitantes.
+     */
     public InformeNumeroVisitantes getInformeNumeroVisitantes(){
         return new InformeNumeroVisitantes();
+    }
+    
+    /**
+     * Método para recuperar la lista de atracciones funcionando
+     * por cada día. Con los diversos métodos se puede conseguir
+     * el número de empleado y costes laborales.
+     * @return Lista de atracciones funcionando.
+     */
+    public AtraccionesFuncionando getAtraccionesFuncionando(){
+        return AtraccionesFuncionando.getLista();
     }
 }
