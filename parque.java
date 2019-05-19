@@ -49,6 +49,8 @@ public class parque {
            parque parque1 = new parque();
            parque1.runRepositorioDatos();
            System.out.println(listaEntradas.size());
+           System.out.println(parque1.getInformeNumeroVisitantes().getTotalAccesosParquePorMes(2019, 2));
+           System.out.println(parque1.getInformeNumeroVisitantes().getTotalAccesosParqueAnual(2019));
            System.out.println(FIN_PROGRAMA);
     }
     
@@ -153,7 +155,7 @@ public class parque {
         
         // Se crean entradas y usuarios
 
-        int control=2000;
+        int control=1000;
         Entrada entrada=fe.generaEntrada(TipoEntrada.GENERAL_ADULTO, true, Temporada.MEDIA, null, new UsuarioAdulto(185));
         ventaRepositorio.getListaCesta().add(entrada);
         do{
